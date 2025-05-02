@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xPyScript>
+  <head>
+    <version>0.1</version>
+    <author></author>
+    <email></email>
+    <comment></comment>
+    <model>C:/xPyScript/Models/Boscoyo ChromaFlake 24 3 prong_RCH.xmodel</model>
+    <rotation>0.00</rotation>
+    <stretch>1.0000</stretch>
+  </head>
+  <NodeMap>
+    <String number="1" startChannel="1" endChannel="144"/>
+  </NodeMap>
+</xPyScript>

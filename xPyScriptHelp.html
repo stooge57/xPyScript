@@ -1,0 +1,136 @@
+<!--This file is under MIT license. The license file can be obtained in the root directory of this module.-->
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    p {
+     word-wrap: break-word;
+     white-space: normal;
+    }
+
+    dd {
+     margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h3>Introduction</h3>
+<p>
+xPyScript is a free and open source program that allows you to program single display models
+ using python.You specify a xLights xmodel that defines the physical element of your display prop
+ and use Python to animate the lights, similar to using an Arduino and the FastLED library. Output
+ is to the screen and the physical LED pixels via a E1.31 controller if connected. Currently only
+ 3 channel RGB pixels and E1.31 protocol controllers are supported. The resultant sequence can be
+ exported to an xlight's .xsq file, which can be opened by xLights and added to a larger sequence
+ or saved to a .fseq file.
+</p>
+
+<hr>
+<h3>Menu Commands</h3>
+<dt><i>New</i></dt>
+<dd>Creates a new sequence. This creates a .xscr file to save file settings and a .py file where
+ the actual programming takes place.</dd>
+
+<dt><i>Export</i></dt>
+<dd>Exports a sequence of the specified length to an xLights .xsq file.</dd>
+
+<dt><i>Run</i></dt>
+<dd>Executes the sequence's python program. You can Stop the sequence, modify the code
+ (and save) and Run will reload the updated code without exiting PyLights.</dd>
+
+<dt><i>Stop</i></dt>
+<dd>Stops the sequence's python program.</dd>
+
+<dt><i>Node ID</i></dt>
+<dd>Used to select and identify the model's node numbers which simplifys making node lists
+ for programming. Multiple Node mode allows nodes to be individually selected with the left
+ mouse button or by holding down the left mouse button and moving the cursor over the nodes.
+ They can be deselected from the list by holding down the ctrl button. The Window Node mode
+ allows node selection by drawing windows around the nodes. The resultant list is shown in
+ the status bar and is copied automatically to the clipboard</dd>
+
+<dt><i>Interactive Color</i></dt>
+<dd>Shows how the selected color will look on the physical pixel. The selected color is
+ copied automatically to the clipboard. Output to Lights menu option has to be enabled.</dd>
+
+<dt><i>Application Settings</i></dt>
+<dd>Application settings are options applying to all files. Options to customize screen
+ appearance and whether to use unicast or multicast E1.31.</dd>
+
+<dt><i>File Settings</i></dt>
+<dd>File settings are options applying only to the opened file. The stretch option modifies
+ the aspect ratio of the model's screen display. The Node Mapping is used to configure the
+ universe/channel setup; these settings must match the pixel controller settings.</dd>
+
+<hr>
+<h3>Programming</h3>
+The following is the list of the standard Sequence methods and attributes. Some are used
+ to access the pixels' buffer while others are useful convenience methods. These are class
+ methods/attributes, so they need to be prefixed by self. Any Python methods and modules can be used.
+ The setup() method is called just once, so initialization and defining program variables is done 
+here. The loop() method is where we write the code that we want to execute over and 
+over again.<br><br>
+
+<dt><i>choice(list)</i></dt>
+<dd>Returns a randomly selected element from the argument list.</dd>
+
+<dt><i>clear(nodeNumbers)</i></dt>
+<dd>Clears the nodes given in the nodeNumbers list. Argument can also be a single integer.</dd>
+
+<dt><i>clearAll()</i></dt>
+<dd>Clears the entire model.</dd>
+
+<dt><i>delay(ms)</i></dt>
+<dd>Pauses the sequence for the specified period in milliseconds.</dd>
+
+<dt><i>doEveryMillis(idKey, N)</i></dt>
+<dd>Executes the following block of code every N milliseconds. Give each instance a unique idKey.</dd>
+
+<dt><i>doEverySeconds(idKey, N)</i></dt>
+<dd>Executes the following block of code every N seconds. Give each instance a unique idKey.</dd>
+
+<dt><i>random(max)</i></dt>
+<dd>Returns a random number between 0 and max-1.</dd>
+
+<dt><i>randomRange(min, max)</i></dt>
+<dd>Returns a random number between min and max-1.</dd>
+
+<dt><i>setHsv(nNodeNumbers, hue, saturation, value)</i></dt>
+<dd>Sets the list of nodes to the HSV color. Hue is between 0 and 359,
+ saturation and value are between 0 and 255. List argument can also be a single integer.</dd>
+
+<dt><i>setHsvAll(hue, saturation, value)</i></dt>
+<dd>Sets the entire model to the HSV color. Hue is between 0 and 359,
+ saturation and value are between 0 and 255.</dd>
+
+<dt><i>setMasterBrightness(scale)</i></dt>
+<dd>Sets the overall brightness of the model. Scale is between 0.0 and 1.0.</dd>
+
+<dt><i>setRgb(nNodeNumbers, rgb)</i></dt>
+<dd>Sets the list of nodes to the 32-bit rgb argument color. List argument can also be a
+ single integer.</dd>
+
+<dt><i>setRgbAll(rgb)</i></dt>
+<dd>Sets the entire model to the 32-bit rgb argument color.</dd>
+
+<dt><i>setRgb3(nNodeNumbers, red, green, blue)</i></dt>
+<dd>Sets the list of nodes to the red/green/blue argument color. List argument can also
+ be a single integer.</dd>
+
+<dt><i>setRgb3All(nNodeNumbers, red, green, blue)</i></dt>
+<dd>Sets the entire model to the red/green/blue argument color.</dd>
+
+<dt><i>show()</i></dt>
+<dd>Sends the color data stored in the pixels buffer to the screen and physical LED strings.</dd>
+
+<dt><i>nNodes [attribute]</i></dt>
+<dd>The number of nodes in the model.</dd>
+
+<dt><i>nodeColors [attribute]</i></dt>
+<dd>A list of the current node colors (QColor) of the model.</dd><br>
+
+</body>
+</html>
+
+
